@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
+import { initialState } from './globals';
 
 const middlewares = [];
 let enhancer;
@@ -16,8 +17,8 @@ if (process.env.NODE_ENV !== 'production') {
   enhancer = applyMiddleware(...middlewares);
 }
 
-export default function (initialState) {
-  const store = createStore(rootReducer, initialState, enhancer);
+export default function (initState = initialState) {
+  const store = createStore(rootReducer, initState, enhancer);
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
