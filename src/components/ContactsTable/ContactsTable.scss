@@ -1,0 +1,18 @@
+.contacts-table {
+  border-collapse: collapse;
+  font-size: 1.5em;
+  text-align: left;
+
+  > thead {
+    background-color: #0ff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #b2f3f3;
+  }
+
+  th, td {
+    border: 2px solid gray;
+    padding: .3em;
+  }
+}
