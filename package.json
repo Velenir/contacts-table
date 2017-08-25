@@ -65,11 +65,13 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "combine-reducers-global-state": "^1.0.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "next",
     "react-redux": "^5.0.5",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "uuid": "^3.1.0"
   },
   "config": {
     "commitizen": {
