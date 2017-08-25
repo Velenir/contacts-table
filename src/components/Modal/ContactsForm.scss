@@ -1,0 +1,16 @@
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+
+  &__input {
+    padding: 0.4rem;
+    margin: 1rem 0;
+    font-size: 1.2em;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+}
