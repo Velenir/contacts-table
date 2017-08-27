@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { headings } from '../../store/globals';
 import { editContact, deleteContact } from '../../store/actions';
+import { makeContactDetailsSelector } from '../../store/selectors';
 import { dateParser } from '../../helpers';
 
 const parseDate = dateParser('/');
@@ -34,9 +34,13 @@ class ContactsRow extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts }, { id }) => ({
-  details: headings.map(h => contacts[id][h])
-});
+// creates individual selector for each component
+const makeMapStateToProps = () => {
+  const getContactDetails = makeContactDetailsSelector();
+  return (state, props) => ({
+    details: getContactDetails(state, props)
+  });
+};
 
 
-export default connect(mapStateToProps, { editContact, deleteContact })(ContactsRow);
+export default connect(makeMapStateToProps, { editContact, deleteContact })(ContactsRow);

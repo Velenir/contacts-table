@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ContactsRow from './ContactsRow';
+import { getContactIds } from '../../store/selectors';
 
 const ContactsBody = ({ contactIds }) => (
   <tbody>
@@ -8,8 +9,8 @@ const ContactsBody = ({ contactIds }) => (
   </tbody>
 );
 
-const mapStateToProps = ({ contacts }) => ({
-  contactIds: Object.keys(contacts)
+const mapStateToProps = (state) => ({
+  contactIds: getContactIds(state)
 });
 
 export default connect(mapStateToProps, null)(ContactsBody);
