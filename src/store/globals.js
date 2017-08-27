@@ -5,9 +5,17 @@ const IDS = Array.from({ length: 5 }, () => uuid());
 
 const initialContacts = {
   // these can be uuids or ids from a DB
+  [IDS[0]]: {
+    id: IDS[0],
+    firstname: 'John',
+    lastname: 'Doe',
+    dob: new Date('1970/01/01'),
+    tel: '123123123',
+    email: 'example@example.org'
+  },
   [IDS[1]]: {
     id: IDS[1],
-    firstname: 'John',
+    firstname: 'Jane',
     lastname: 'Doe',
     dob: new Date('1970/01/01'),
     tel: '123123123',
@@ -15,30 +23,22 @@ const initialContacts = {
   },
   [IDS[2]]: {
     id: IDS[2],
-    firstname: 'Jane',
-    lastname: 'Doe',
-    dob: new Date('1970/01/01'),
-    tel: '123123123',
-    email: 'example@example.org'
-  },
-  [IDS[3]]: {
-    id: IDS[3],
     firstname: 'Test',
     lastname: 'Account',
     dob: new Date('1970/01/01'),
     tel: '123123123',
     email: 'example@example.org'
   },
-  [IDS[4]]: {
-    id: IDS[4],
+  [IDS[3]]: {
+    id: IDS[3],
     firstname: 'Young',
     lastname: 'User',
     dob: new Date('1998/04/02'),
     tel: '123123123',
     email: 'test@example.org'
   },
-  [IDS[5]]: {
-    id: IDS[5],
+  [IDS[4]]: {
+    id: IDS[4],
     firstname: 'John',
     lastname: 'Doe',
     dob: new Date('1970/01/01'),
