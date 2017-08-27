@@ -25,3 +25,7 @@ export const cancelEditSave = (id) => ({
   type: TYPES.CANCEL_EDIT_SAVE,
   payload: { id }
 });
+export const sortContacts = (by, dir) => ({
+  type: TYPES.SORT_CONTACTS,
+  payload: { by, dir }
+});
