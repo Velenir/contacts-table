@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { headings } from '../../store/globals';
 import { editContact, deleteContact } from '../../store/actions';
+import { dateParser } from '../../helpers';
 
-const parseDate = date => {
-  const y = date.getFullYear();
-  const m = date.getMonth() + 1;
-  const d = date.getDate();
-  return `${y}/${m >= 10 ? '' : 0}${m}/${d >= 10 ? '' : 0}${d}`;
-};
+const parseDate = dateParser('/');
 
 class ContactsRow extends Component {
   editContact = (e) => {
