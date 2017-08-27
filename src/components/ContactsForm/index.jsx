@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CREATE_CONTACT, EDIT_CONTACT } from '../../store/actions/types';
 import { saveContact, cancelEditSave, editContactProp } from '../../store/actions';
-import { headings, headingsMapped as mapped, headingsTypesMapped as types } from '../../store/globals';
+import { dateParser } from '../../helpers';
+import { headings } from '../../store/globals';
+import ContactsInput from './ContactsInput';
 import './ContactsForm.scss';
 
-// TODO: move parseDate to globals and curry per spearator
-const parseDate = date => {
-  const y = date.getFullYear();
-  const m = date.getMonth() + 1;
-  const d = date.getDate();
-  return `${y}-${m >= 10 ? '' : 0}${m}-${d >= 10 ? '' : 0}${d}`;
-};
+const parseDate = dateParser('-');
 
 class ContactsForm extends Component {
   submit = (e) => {
@@ -34,15 +30,12 @@ class ContactsForm extends Component {
     const { details, submitText } = this.props;
     return (
       <form onSubmit={this.submit} className="contacts-form">
-        {/* TODO: put input into a separate component*/}
         {headings.map((h) => (
-          <input
-            className="contacts-form__input"
-            type={types[h]}
+          <ContactsInput
             name={h}
             key={h}
-            placeholder={mapped[h]}
-            value={details[h] instanceof Date ? parseDate(details[h]) : (details[h] || '')}
+            value={details[h] instanceof Date ? parseDate(details[h]) : details[h]}
+            required
             onChange={this.editProp}
           />
         ))}

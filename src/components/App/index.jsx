@@ -4,7 +4,7 @@ import './App.scss';
 import ContactsTable from '../ContactsTable';
 import { createContact } from '../../store/actions';
 import Modal from '../Modal';
-import ContactsForm from '../Modal/ContactsForm';
+import ContactsForm from '../ContactsForm';
 
 // need to wrap in a func to allow passing class components
 const createModalForm = () => <ContactsForm />;
